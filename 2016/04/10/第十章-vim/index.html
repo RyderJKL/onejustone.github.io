@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>第十章-vim | onejustone'blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">第十章-vim</h1><a id="logo" href="/.">onejustone'blog</a><p class="description">--保证独立思维 --</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">第十章-vim</h1><div class="post-meta">Apr 10, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-Why-Vim"><span class="toc-number">1.</span> <span class="toc-text">0x00 Why Vim?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-vi的使用"><span class="toc-number">2.</span> <span class="toc-text">0x01 vi的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-vi的那些常用快捷键"><span class="toc-number">3.</span> <span class="toc-text">0x02 vi的那些常用快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#光标移动"><span class="toc-number">3.1.</span> <span class="toc-text">光标移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找与替换"><span class="toc-number">3.2.</span> <span class="toc-text">查找与替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除，复制与粘贴"><span class="toc-number">3.3.</span> <span class="toc-text">删除，复制与粘贴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一般模式切换到编辑模式"><span class="toc-number">3.4.</span> <span class="toc-text">一般模式切换到编辑模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一般模式切换到指令模式"><span class="toc-number">3.5.</span> <span class="toc-text">一般模式切换到指令模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-区块选择-Visual-Block"><span class="toc-number">4.</span> <span class="toc-text">0x03 区块选择(Visual Block)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区块选择快捷键"><span class="toc-number">4.1.</span> <span class="toc-text">区块选择快捷键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-多文件编辑"><span class="toc-number">5.</span> <span class="toc-text">0x04 多文件编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-多窗口功能"><span class="toc-number">6.</span> <span class="toc-text">0x05 多窗口功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-vim的配置文件"><span class="toc-number">7.</span> <span class="toc-text">0x06 vim的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x07-vim的插件"><span class="toc-number">8.</span> <span class="toc-text">0x07 vim的插件</span></a></li></ol></div></div><div class="post-content"><h3 id="0x00-Why-Vim"><a href="#0x00-Why-Vim" class="headerlink" title="0x00 Why Vim?"></a>0x00 Why Vim?</h3><p>首先要说的是vim是一款文字编辑器，但它并不是一款编辑器那么简单:</p>
+<ul>
+<li>神器中的神器</li>
+<li>所有的类UNIX操作系统都会内建vi编辑器，其它的则不一定会有</li>
+<li>很多个软件的编辑接口都会主动呼叫vi;</li>
+<li>vim具有程序编辑能力</li>
+</ul>
+<p>简单的说，vi是一个老式的处理机，而vim可以说的是一个程序开发工具，你可以将 vim 视作 vi 的进阶版本，vim可以使用颜色或底线来显示一些特殊信息，vim 会依据档案的扩展名或者是档案内的开头信息， 判断该档案的内容而自动的呼叫该程序的语法判断式，再以颜色来显示程序代码与一般信息</p>
+<hr>
+<h3 id="0x01-vi的使用"><a href="#0x01-vi的使用" class="headerlink" title="0x01 vi的使用"></a>0x01 vi的使用</h3><p>vi有三种模式，一般模式，编辑模式，指令模式:</p>
+<ul>
+<li><p>一般模式:vi默认打开一个文档，就进入一般模式了，该模式下我们可以使用<strong>上下左右</strong>按键来移动鼠标，使用<strong>删除字符</strong>,或<strong>删除整行</strong>来处理文档，也可以使用<strong>复制，粘贴</strong>来处理数据。</p>
+</li>
+<li><p>编辑模式: 在一般模式中按下<strong>{i,I,o,O,a,A,r,R}</strong>等任何一个字母后才会进入到编辑模式，通常下方会显示<strong>INSERT或REPLACE</strong>的字样！按<strong>Esc</strong>回到一般模式！</p>
+</li>
+<li><p>指令模式:在一般模式中输入<strong>{: / ?}</strong>三个中的任何一个按钮，关闭便会移动到最底下一行，该模式中，可以查询，替换字符内容等，进行读取，保存，离开vi，显示行号的操作！</p>
+</li>
+</ul>
+<p>值得注意的是，一般模式编辑模式，指令模式之间可任意互换，但编辑模式与指令模式之间不可互换！</p>
+<hr>
+<h3 id="0x02-vi的那些常用快捷键"><a href="#0x02-vi的那些常用快捷键" class="headerlink" title="0x02 vi的那些常用快捷键"></a>0x02 vi的那些常用快捷键</h3><p><strong>一般模式下:</strong></p>
+<hr>
+<h4 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">h 或 向左箭头键(←)</td>
+<td style="text-align:center">光标向左移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">j 或 向下箭头键(↓)</td>
+<td style="text-align:center">光标向下移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">k 或 向上箭头键(↑)</td>
+<td style="text-align:center">光标向上移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">l 或 向右箭头键(→)</td>
+<td style="text-align:center">光标向右移动一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">组合键:30j</td>
+<td style="text-align:center">向下移动30行</td>
+</tr>
+<tr>
+<td style="text-align:center">[Ctrl] + [f]</td>
+<td style="text-align:center">屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">[Ctrl] + [b]</td>
+<td style="text-align:center">屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">光标移动到非空格符的下一列</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">光标移动到非空格符的上一列</td>
+</tr>
+<tr>
+<td style="text-align:center">n<space></space></td>
+<td style="text-align:center">那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。例如 20<space> 则光标会向后面移动 20 个字符距离。</space></td>
+</tr>
+<tr>
+<td style="text-align:center">0 或功能键[Home]</td>
+<td style="text-align:center">这是数字『 0 』：移动到这一行的最前面字符处 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">移动到这个档案的最后一行(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">nG</td>
+<td style="text-align:center">n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</td>
+</tr>
+<tr>
+<td style="text-align:center">gg</td>
+<td style="text-align:center">移动到这个档案的第一行，相当于 1G 啊！ (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">n<enter></enter></td>
+<td style="text-align:center">n 为数字。光标向下移动 n 行(常用)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/word</td>
+<td style="text-align:center">向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 这个字符串，就输入 /vbird 即可！ (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">?word</td>
+<td style="text-align:center">向光标之上寻找一个字符串名称为 word 的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:center">n</td>
+<td style="text-align:center">代表『重复前一个搜寻的动作』</td>
+</tr>
+<tr>
+<td style="text-align:center">N</td>
+<td style="text-align:center">这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。</td>
+</tr>
+<tr>
+<td style="text-align:center">:n1,n2s/word1/word2/g</td>
+<td style="text-align:center">n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到 200 行之间搜寻 vbird 并取代为 VBIRD 则：『:100,200s/vbird/VBIRD/g』。(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">:1,$s/word1/word2/g</td>
+<td style="text-align:center">从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">:1,$s/word1/word2/gc</td>
+<td style="text-align:center">从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认 (confirm) 是否需要取代！(常用)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="删除，复制与粘贴"><a href="#删除，复制与粘贴" class="headerlink" title="删除，复制与粘贴"></a>删除，复制与粘贴</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x,X</td>
+<td style="text-align:center">在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">nx</td>
+<td style="text-align:center">n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。</td>
+</tr>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:center">删除游标所在的那一整列(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">ndd</td>
+<td style="text-align:center">n 为数字。删除光标所在的向下 n 列，例如 20dd 则是删除 20 列 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">yy</td>
+<td style="text-align:center">复制游标所在的那一行(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">nyy</td>
+<td style="text-align:center">n 为数字。复制光标所在的向下 n 列，例如 20yy 则是复制 20 列(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">p,P</td>
+<td style="text-align:center">p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 举例来说，我目前光标在第 20 行，且已经复制了 10 行数据。则按下 p 后， 那 10 行数据会贴在原本的 20 行之后，亦即由 21 行开始贴。但如果是按下 P 呢？ 那么原本的第 20 行会被推到变成 30 行。 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">u</td>
+<td style="text-align:center">复原前一个动作。(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">[Ctrl]+r</td>
+<td style="text-align:center">重做上一个动作。(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">不要怀疑！这就是小数点！意思是重复前一个动作的意思。 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="一般模式切换到编辑模式"><a href="#一般模式切换到编辑模式" class="headerlink" title="一般模式切换到编辑模式"></a>一般模式切换到编辑模式</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">i,I</td>
+<td style="text-align:left">进入插入模式(Insert mode)：i 为『从目前光标所在处插入』， I 为『在目前所在行的第一个非空格符处开始插入』。 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">a,A</td>
+<td style="text-align:left">进入插入模式(Insert mode)：a 为『从目前光标所在的下一个字符处开始插入』， A 为『从光标所在行的最后一个字符处开始插入』。(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">o,O</td>
+<td style="text-align:left">进入插入模式(Insert mode)：这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处插入新的一行』； O 为在目前光标所在处的上一行插入新的一行！(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">r,R</td>
+<td style="text-align:left">进入取代模式(Replace mode)：r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="一般模式切换到指令模式"><a href="#一般模式切换到指令模式" class="headerlink" title="一般模式切换到指令模式"></a>一般模式切换到指令模式</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:w</td>
+<td style="text-align:left">将编辑的数据写入硬盘档案中(常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">:w!</td>
+<td style="text-align:left">若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！</td>
+</tr>
+<tr>
+<td style="text-align:center">:wq!</td>
+<td style="text-align:left">储存后离开，若为 :wq! 则为强制储存后离开 (常用)</td>
+</tr>
+<tr>
+<td style="text-align:center">:w filename</td>
+<td style="text-align:left">将编辑的数据储存成另一个档案（类似另存新档）</td>
+</tr>
+<tr>
+<td style="text-align:center">:r filename</td>
+<td style="text-align:left">在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面</td>
+</tr>
+<tr>
+<td style="text-align:center">:set nu</td>
+<td style="text-align:left">显示行号，设定之后，会在每一行的前缀显示该行的行号</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x03-区块选择-Visual-Block"><a href="#0x03-区块选择-Visual-Block" class="headerlink" title="0x03 区块选择(Visual Block)"></a>0x03 区块选择(Visual Block)</h3><p>至少在进行排列整齐的文本文件中复制/删除区块时，会是一个非常棒的功能！ </p>
+<hr>
+<h4 id="区块选择快捷键"><a href="#区块选择快捷键" class="headerlink" title="区块选择快捷键"></a>区块选择快捷键</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:center">字符选择，会将光标经过的地方反白选择！</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">行选择，会将光标经过的行反白选择</td>
+</tr>
+<tr>
+<td style="text-align:center">[Ctrl]+v</td>
+<td style="text-align:center">区块选择，可以用长方形的方式选择资料</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">将反白的地方复制起来</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">将反白的地方删除</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x04-多文件编辑"><a href="#0x04-多文件编辑" class="headerlink" title="0x04 多文件编辑"></a>0x04 多文件编辑</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:n</td>
+<td style="text-align:center">编辑下一个档案</td>
+</tr>
+<tr>
+<td style="text-align:center">:N</td>
+<td style="text-align:center">编辑上一个档案</td>
+</tr>
+<tr>
+<td style="text-align:center">: files</td>
+<td style="text-align:center">列出目前这个 vim 的开启的所有档案</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x05-多窗口功能"><a href="#0x05-多窗口功能" class="headerlink" title="0x05 多窗口功能"></a>0x05 多窗口功能</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:sp filename</td>
+<td style="text-align:left">开启一个新窗口，如果有加 filename， 表示在新窗口开启一个新档案，否则表示两个窗口为同一个档案内容(同步显示)。</td>
+</tr>
+<tr>
+<td style="text-align:center">[ctrl]+w+ j[ctrl]+w+↓</td>
+<td style="text-align:left">按键的按法是：先按下 [ctrl] 不放， 再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。</td>
+</tr>
+<tr>
+<td style="text-align:center">[ctrl]+w+ k[ctrl]+w+↑</td>
+<td style="text-align:left">同上，不过光标移动到上面的窗口。</td>
+</tr>
+<tr>
+<td style="text-align:center">[ctrl]+w+ q</td>
+<td style="text-align:left">其实就是 :q 结束离开啦！ 举例来说，如果我想要结束下方的窗口，那么利用 [ctrl]+w+↓ 移动到下方窗口后，按下 :q 即可离开， 也可以按下 [ctrl]+w+q 啊！</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x06-vim的配置文件"><a href="#0x06-vim的配置文件" class="headerlink" title="0x06 vim的配置文件"></a>0x06 vim的配置文件</h3><p>整体 vim 的设定值一般是放置在 /etc/vimrc 这个档案，不过，不建议你修改他！ 你可以修改 ~/.vimrc 这个档案 (预设不存在，请你自行手动建立！</p>
+<hr>
+<h3 id="0x07-vim的插件"><a href="#0x07-vim的插件" class="headerlink" title="0x07 vim的插件"></a>0x07 vim的插件</h3></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://onejustone.xyz/2016/04/10/第十章-vim/" data-id="cj0uq9kn700nqcuvs995g1522" class="article-share-link">分享到</a><div class="tags"><a href="/tags/鸟哥的Linux读书笔记基础篇/">鸟哥的Linux读书笔记基础篇</a></div><div class="post-nav"><a href="/2016/04/10/第二十一章-软件的源代码安装/" class="pre">第二十一章-软件安装</a><a href="/2016/04/10/TCPDUMP/" class="next">TCPDUMP初识</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://onejustone.xyz"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CROS/" style="font-size: 15px;">CROS</a> <a href="/tags/Linux进程/" style="font-size: 15px;">Linux进程</a> <a href="/tags/AngularJS/" style="font-size: 15px;">AngularJS</a> <a href="/tags/Python爬虫/" style="font-size: 15px;">Python爬虫</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JS对象/" style="font-size: 15px;">JS对象</a> <a href="/tags/前端模块化/" style="font-size: 15px;">前端模块化</a> <a href="/tags/算法入门/" style="font-size: 15px;">算法入门</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/http模块/" style="font-size: 15px;">http模块</a> <a href="/tags/Java基础/" style="font-size: 15px;">Java基础</a> <a href="/tags/AngularJS深入/" style="font-size: 15px;">AngularJS深入</a> <a href="/tags/Kali渗透测试/" style="font-size: 15px;">Kali渗透测试</a> <a href="/tags/Web渗透测试/" style="font-size: 15px;">Web渗透测试</a> <a href="/tags/Windows工具篇/" style="font-size: 15px;">Windows工具篇</a> <a href="/tags/工具篇/" style="font-size: 15px;">工具篇</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/CSS界面组件/" style="font-size: 15px;">CSS界面组件</a> <a href="/tags/Cmder/" style="font-size: 15px;">Cmder</a> <a href="/tags/HTML5/" style="font-size: 15px;">HTML5</a> <a href="/tags/Web程序设计/" style="font-size: 15px;">Web程序设计</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/MyFirstApp/" style="font-size: 15px;">MyFirstApp</a> <a href="/tags/Kali第六章/" style="font-size: 15px;">Kali第六章</a> <a href="/tags/被动信息收集/" style="font-size: 15px;">被动信息收集</a> <a href="/tags/Apache2/" style="font-size: 15px;">Apache2</a> <a href="/tags/View-Urls/" style="font-size: 15px;">View,Urls</a> <a href="/tags/Models/" style="font-size: 15px;">Models</a> <a href="/tags/前端工具流/" style="font-size: 15px;">前端工具流</a> <a href="/tags/版本控制工具/" style="font-size: 15px;">版本控制工具</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/Java-J2EE/" style="font-size: 15px;">Java-J2EE</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/网络协议/" style="font-size: 15px;">网络协议</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/JS事件/" style="font-size: 15px;">JS事件</a> <a href="/tags/JS变量作用域和内存/" style="font-size: 15px;">JS变量作用域和内存</a> <a href="/tags/JS引用类型/" style="font-size: 15px;">JS引用类型</a> <a href="/tags/Cookie/" style="font-size: 15px;">Cookie</a> <a href="/tags/LocalStorage/" style="font-size: 15px;">LocalStorage</a> <a href="/tags/同源策略与CORS/" style="font-size: 15px;">同源策略与CORS</a> <a href="/tags/表单脚本/" style="font-size: 15px;">表单脚本</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JS正则/" style="font-size: 15px;">JS正则</a> <a href="/tags/JS设计模式/" style="font-size: 15px;">JS设计模式</a> <a href="/tags/JS离线应用与客户端存储/" style="font-size: 15px;">JS离线应用与客户端存储</a> <a href="/tags/JS高阶/" style="font-size: 15px;">JS高阶</a> <a href="/tags/Java应用/" style="font-size: 15px;">Java应用</a> <a href="/tags/kali之滚动更新/" style="font-size: 15px;">kali之滚动更新</a> <a href="/tags/Kali安装与环境优化/" style="font-size: 15px;">Kali安装与环境优化</a> <a href="/tags/渗透手册/" style="font-size: 15px;">渗透手册</a> <a href="/tags/漏洞扫描/" style="font-size: 15px;">漏洞扫描</a> <a href="/tags/kali渗透测试/" style="font-size: 15px;">kali渗透测试</a> <a href="/tags/主动信息收集/" style="font-size: 15px;">主动信息收集</a> <a href="/tags/photoshop/" style="font-size: 15px;">photoshop</a> <a href="/tags/Python基础/" style="font-size: 15px;">Python基础</a> <a href="/tags/Python标准库/" style="font-size: 15px;">Python标准库</a> <a href="/tags/Python网络/" style="font-size: 15px;">Python网络</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/JSX/" style="font-size: 15px;">JSX</a> <a href="/tags/CSS预处理/" style="font-size: 15px;">CSS预处理</a> <a href="/tags/SQL查询的艺术/" style="font-size: 15px;">SQL查询的艺术</a> <a href="/tags/SQL基础/" style="font-size: 15px;">SQL基础</a> <a href="/tags/kali第五章/" style="font-size: 15px;">kali第五章</a> <a href="/tags/基本工具/" style="font-size: 15px;">基本工具</a> <a href="/tags/JS小项目/" style="font-size: 15px;">JS小项目</a> <a href="/tags/Vue-js/" style="font-size: 15px;">Vue.js</a> <a href="/tags/kali系统配置/" style="font-size: 15px;">kali系统配置</a> <a href="/tags/fs模块/" style="font-size: 15px;">fs模块</a> <a href="/tags/响应式布局/" style="font-size: 15px;">响应式布局</a> <a href="/tags/前端工具化/" style="font-size: 15px;">前端工具化</a> <a href="/tags/yarn/" style="font-size: 15px;">yarn</a> <a href="/tags/前端之坑/" style="font-size: 15px;">前端之坑</a> <a href="/tags/前端实战/" style="font-size: 15px;">前端实战</a> <a href="/tags/前端漫话之网络/" style="font-size: 15px;">前端漫话之网络</a> <a href="/tags/存储过程与函数/" style="font-size: 15px;">存储过程与函数</a> <a href="/tags/完整性约束/" style="font-size: 15px;">完整性约束</a> <a href="/tags/CSS小技巧/" style="font-size: 15px;">CSS小技巧</a> <a href="/tags/模块/" style="font-size: 15px;">模块</a> <a href="/tags/深入浅出Node-js学习笔记/" style="font-size: 15px;">深入浅出Node.js学习笔记</a> <a href="/tags/Android开发/" style="font-size: 15px;">Android开发</a> <a href="/tags/鸟哥服务器篇读书笔记/" style="font-size: 15px;">鸟哥服务器篇读书笔记</a> <a href="/tags/鸟哥的Linux读书笔记基础篇/" style="font-size: 15px;">鸟哥的Linux读书笔记基础篇</a> <a href="/tags/索引与视图/" style="font-size: 15px;">索引与视图</a> <a href="/tags/CSS进阶/" style="font-size: 15px;">CSS进阶</a> <a href="/tags/Secrets/" style="font-size: 15px;">Secrets</a> <a href="/tags/触发器/" style="font-size: 15px;">触发器</a> <a href="/tags/协议分析/" style="font-size: 15px;">协议分析</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/yarn初步/">yarn初步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Linux-PID进程追踪/">Linux-PID进程追踪</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/AngularJS深入(1)之ui-router/">AngularJS深入(1)之ui.router</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/ 前端模块化(1)之各种规范/">前端模块化(1)之各种规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)自定义指令/">Vue.j(进阶)自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)Render函数/">Vue.j(进阶)Render函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js概览/">Vue.js概览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/深入浅出Node-js番外篇(1)node版本管理/">深入浅出Node.js番外篇(1)node版本管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/ 前端模块化(2)之requireJS/">JavaScript模块化(2)之requireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/11/AngularJS(9)高级指令/">AngularJS(9)高级指令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">onejustone'blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

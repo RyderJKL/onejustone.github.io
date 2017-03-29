@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Python(1)-字符串格式化 | onejustone'blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Python(1)-字符串格式化</h1><a id="logo" href="/.">onejustone'blog</a><p class="description">--保证独立思维 --</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Python(1)-字符串格式化</h1><div class="post-meta">Mar 25, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00"><span class="toc-number">1.</span> <span class="toc-text">0x00</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-Numbers-and-Math"><span class="toc-number">2.</span> <span class="toc-text">0x01 Numbers and Math</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-Variables-and-Names-变量和命名"><span class="toc-number">3.</span> <span class="toc-text">0x02 Variables and Names (变量和命名)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-Python转义字符-Escape-Sequences"><span class="toc-number">4.</span> <span class="toc-text">0x03 Python转义字符(Escape Sequences)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-模板-“-”"><span class="toc-number">5.</span> <span class="toc-text">0x04 模板 “%”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-格式符"><span class="toc-number">6.</span> <span class="toc-text">0x05 格式符</span></a></li></ol></div></div><div class="post-content"><h3 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h3><p>单(‘)引号与双引号(“”)并无明显区别，三引号(‘’’)或者(“””)【两者并无明显区别】中的字符可以换行输入文本</p>
+<hr>
+<h3 id="0x01-Numbers-and-Math"><a href="#0x01-Numbers-and-Math" class="headerlink" title="0x01 Numbers and Math"></a>0x01 Numbers and Math</h3><p>每种程序语言都有自己的数字和数学表示方法，下面是Python中的数学符号:</p>
+<ul>
+<li><strong>+</strong> plus  加号</li>
+<li><strong>-</strong> minus  减号</li>
+<li><strong>/</strong> slash  斜杠/求模</li>
+<li><strong>*</strong> asterisk  星号/乘号</li>
+<li><strong>%</strong> percent 模运算中的求余</li>
+<li><strong>&lt;</strong> less-than </li>
+<li><strong>&gt;</strong> greater-than</li>
+<li><strong>&lt;=</strong> less-than-equal</li>
+<li><strong>&gt;=</strong> greater-than-equal</li>
+</ul>
+<hr>
+<h3 id="0x02-Variables-and-Names-变量和命名"><a href="#0x02-Variables-and-Names-变量和命名" class="headerlink" title="0x02 Variables and Names (变量和命名)"></a>0x02 Variables and Names (变量和命名)</h3><p>首先需要知道的是Python中并没有常量的概念，python中的数的类型有五种:int,long,float,bool,complex（复数），在编程中变量不过是一个名字，由于程序员们糟糕的记忆，才需要给变量区名，以便区分它们！</p>
+<hr>
+<h3 id="0x03-Python转义字符-Escape-Sequences"><a href="#0x03-Python转义字符-Escape-Sequences" class="headerlink" title="0x03 Python转义字符(Escape Sequences)"></a>0x03 Python转义字符(Escape Sequences)</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">ESCAPE</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\\</td>
+<td style="text-align:center">Backslash()</td>
+</tr>
+<tr>
+<td style="text-align:center">\‘</td>
+<td style="text-align:center">SIngle-quote(‘)</td>
+</tr>
+<tr>
+<td style="text-align:center">\”</td>
+<td style="text-align:center">Double-quote(“)</td>
+</tr>
+<tr>
+<td style="text-align:center">\a</td>
+<td style="text-align:center">ASCII bell(BEL)</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">ASCII backspace(BS)</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:center">ASCII formfeed(FF) 跳页</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">ASCII linefeed(LF) 换行</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">Carriage Return(CR) 回车</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">Horizontal Tab (TAB) 水平制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:center">Vertical Tab(VT) 垂直制表符</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x04-模板-“-”"><a href="#0x04-模板-“-”" class="headerlink" title="0x04 模板 “%”"></a>0x04 模板 “%”</h3><p>格式化字符串时，Python使用一个字符串作为模板，模板中有格式符，这些格式符为真是值预留位置，并说明真实数值应该呈现的格式，Pyhon使用一个tuple将多个值传递给模板，每个值对应一个字符:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(&quot;i&apos;m %s. i&apos;m %d year old&quot; % (&quot;onejustone&quot;, 3))</div></pre></td></tr></table></figure></p>
+<p>还可以使用词典来传递真实值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(&quot;i&apos;m % (name)s. i&apos;m %(age)d year old&quot; % &#123; &apos;name&apos;: &apos;onejustone&apos;, &apos;age&apos;:3&#125;)</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="0x05-格式符"><a href="#0x05-格式符" class="headerlink" title="0x05 格式符"></a>0x05 格式符</h3><ul>
+<li><strong>%s</strong> 字符串(采用str()的显示)</li>
+<li><strong>%r</strong> 字符串(采用repr()的显示)</li>
+<li><strong>%c</strong> 单个字符</li>
+<li><strong>%b</strong> 二进制</li>
+<li><strong>%d</strong> 十进制</li>
+<li><strong>%i</strong> 十进制</li>
+<li><strong>%o</strong> 八进制</li>
+<li><strong>%x</strong> 十六进制</li>
+<li><strong>%e</strong> 指数(基底为e)</li>
+<li><strong>%E</strong> 指数(基底为E)</li>
+<li><strong>%f</strong> 浮点数</li>
+<li><strong>%F</strong> 浮点数</li>
+<li><strong>%g</strong> 指数(e)或者浮点数(根据长度自动显示)</li>
+<li><strong>%G</strong> 指数(E)或者浮点数(根据长度自动显示)</li>
+<li><strong>%%</strong> 字符”%”</li>
+</ul>
+<ul>
+<li>格式字符串的语法</li>
+</ul>
+<p><strong>%[(name)] [flags] [width].[precision] typecode</strong></p>
+<p>(name)为名，flags可以<strong>+</strong>表示右对齐, <strong>-</strong>表示左对齐, <strong>‘ ‘</strong>为一个空格表示在正数的左侧填充一个空格, 或者<strong>0</strong>表示使用0填充. width表示显示的宽度，precision表示小数点后精度。</p>
+<p>如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print(&quot;%+10x&quot; % 10)</div><div class="line">        +a</div><div class="line">print(&quot;%04d&quot; % 5)</div><div class="line">0005</div><div class="line">print(&quot;%6.3f&quot; % 2.4)</div><div class="line"> 2.400</div></pre></td></tr></table></figure></p>
+<p>对于width，precision为两个整数，还可以利用<strong>“*”</strong>，来动态代入这个两个量:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">print(&quot;%*.*f&quot; %(8, 5, 5.999))</div><div class="line">5.99900</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意”%s”和”%r”的区别</p>
+</blockquote>
+<p>在使用“%r”时表示输出自然语言字符串(英文)，使用reper()方法处理对象，而%s使用str()方法处理对象:</p>
+<ul>
+<li><p>它们对数字的处理方式都是相同的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print &quot;this number is %d.&quot; % 22</div><div class="line">print &apos;this number is %s.&apos;  % 22</div><div class="line">print &apos;this number is %r.&apos;  % 22</div><div class="line">this number is 22.</div></pre></td></tr></table></figure>
+</li>
+<li><p>但以下则不一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">text=&apos;i am %d years old.&apos; % 22</div><div class="line">print &apos;i said:%s&apos; % text</div><div class="line">i said:i am 22 years old.</div><div class="line">print &apos;i said:%r&apos; % text</div><div class="line">i said:&apos;i am 22 years old.&apos;</div><div class="line">``` </div><div class="line">r对其处理的文本加了单引号</div><div class="line"> * 再来</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>import datetime<br>d=datetime.date.today()<br>print ‘%s’ % d<br>2016-03-28<br>print ‘%r’ % d<br>datetime.date(2016, 3, 28)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">可见%r打印时可以重现其所代表的对象(rper())</div></pre></td></tr></table></figure></p>
+<p>formatter=’%r %r %r %r<br>print formatter % (formatter,formatter,formatter,formatter)<br>‘%r %r %r %r’ ‘%r %r %r %r’ ‘%r %r %r %r’ ‘%r %r %r %r’<br>```<br>当然，在实际应用中%r更多的作用是用来调试和校验运行代码的哦！</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://onejustone.xyz/2016/03/25/Python(1)-字符串格式化/" data-id="cj0uq9jn60090cuvsyt4sp8fi" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Python基础/">Python基础</a></div><div class="post-nav"><a href="/2016/03/27/Kali之搜索引擎/" class="pre">Kali之搜索引擎</a><a href="/2016/03/24/DNS区域传输，字典爆破，注册信息/" class="next">DNS区域传输，字典爆破，注册信息</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://onejustone.xyz"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CROS/" style="font-size: 15px;">CROS</a> <a href="/tags/Linux进程/" style="font-size: 15px;">Linux进程</a> <a href="/tags/AngularJS/" style="font-size: 15px;">AngularJS</a> <a href="/tags/Python爬虫/" style="font-size: 15px;">Python爬虫</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JS对象/" style="font-size: 15px;">JS对象</a> <a href="/tags/前端模块化/" style="font-size: 15px;">前端模块化</a> <a href="/tags/算法入门/" style="font-size: 15px;">算法入门</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/http模块/" style="font-size: 15px;">http模块</a> <a href="/tags/Java基础/" style="font-size: 15px;">Java基础</a> <a href="/tags/AngularJS深入/" style="font-size: 15px;">AngularJS深入</a> <a href="/tags/Kali渗透测试/" style="font-size: 15px;">Kali渗透测试</a> <a href="/tags/Web渗透测试/" style="font-size: 15px;">Web渗透测试</a> <a href="/tags/Windows工具篇/" style="font-size: 15px;">Windows工具篇</a> <a href="/tags/工具篇/" style="font-size: 15px;">工具篇</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/CSS界面组件/" style="font-size: 15px;">CSS界面组件</a> <a href="/tags/Cmder/" style="font-size: 15px;">Cmder</a> <a href="/tags/HTML5/" style="font-size: 15px;">HTML5</a> <a href="/tags/Web程序设计/" style="font-size: 15px;">Web程序设计</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/MyFirstApp/" style="font-size: 15px;">MyFirstApp</a> <a href="/tags/Kali第六章/" style="font-size: 15px;">Kali第六章</a> <a href="/tags/被动信息收集/" style="font-size: 15px;">被动信息收集</a> <a href="/tags/Apache2/" style="font-size: 15px;">Apache2</a> <a href="/tags/View-Urls/" style="font-size: 15px;">View,Urls</a> <a href="/tags/Models/" style="font-size: 15px;">Models</a> <a href="/tags/前端工具流/" style="font-size: 15px;">前端工具流</a> <a href="/tags/版本控制工具/" style="font-size: 15px;">版本控制工具</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/Java-J2EE/" style="font-size: 15px;">Java-J2EE</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/网络协议/" style="font-size: 15px;">网络协议</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/JS事件/" style="font-size: 15px;">JS事件</a> <a href="/tags/JS变量作用域和内存/" style="font-size: 15px;">JS变量作用域和内存</a> <a href="/tags/JS引用类型/" style="font-size: 15px;">JS引用类型</a> <a href="/tags/Cookie/" style="font-size: 15px;">Cookie</a> <a href="/tags/LocalStorage/" style="font-size: 15px;">LocalStorage</a> <a href="/tags/同源策略与CORS/" style="font-size: 15px;">同源策略与CORS</a> <a href="/tags/表单脚本/" style="font-size: 15px;">表单脚本</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JS正则/" style="font-size: 15px;">JS正则</a> <a href="/tags/JS设计模式/" style="font-size: 15px;">JS设计模式</a> <a href="/tags/JS离线应用与客户端存储/" style="font-size: 15px;">JS离线应用与客户端存储</a> <a href="/tags/JS高阶/" style="font-size: 15px;">JS高阶</a> <a href="/tags/Java应用/" style="font-size: 15px;">Java应用</a> <a href="/tags/kali之滚动更新/" style="font-size: 15px;">kali之滚动更新</a> <a href="/tags/Kali安装与环境优化/" style="font-size: 15px;">Kali安装与环境优化</a> <a href="/tags/渗透手册/" style="font-size: 15px;">渗透手册</a> <a href="/tags/漏洞扫描/" style="font-size: 15px;">漏洞扫描</a> <a href="/tags/kali渗透测试/" style="font-size: 15px;">kali渗透测试</a> <a href="/tags/主动信息收集/" style="font-size: 15px;">主动信息收集</a> <a href="/tags/photoshop/" style="font-size: 15px;">photoshop</a> <a href="/tags/Python基础/" style="font-size: 15px;">Python基础</a> <a href="/tags/Python标准库/" style="font-size: 15px;">Python标准库</a> <a href="/tags/Python网络/" style="font-size: 15px;">Python网络</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/JSX/" style="font-size: 15px;">JSX</a> <a href="/tags/CSS预处理/" style="font-size: 15px;">CSS预处理</a> <a href="/tags/SQL查询的艺术/" style="font-size: 15px;">SQL查询的艺术</a> <a href="/tags/SQL基础/" style="font-size: 15px;">SQL基础</a> <a href="/tags/kali第五章/" style="font-size: 15px;">kali第五章</a> <a href="/tags/基本工具/" style="font-size: 15px;">基本工具</a> <a href="/tags/JS小项目/" style="font-size: 15px;">JS小项目</a> <a href="/tags/Vue-js/" style="font-size: 15px;">Vue.js</a> <a href="/tags/kali系统配置/" style="font-size: 15px;">kali系统配置</a> <a href="/tags/fs模块/" style="font-size: 15px;">fs模块</a> <a href="/tags/响应式布局/" style="font-size: 15px;">响应式布局</a> <a href="/tags/前端工具化/" style="font-size: 15px;">前端工具化</a> <a href="/tags/yarn/" style="font-size: 15px;">yarn</a> <a href="/tags/前端之坑/" style="font-size: 15px;">前端之坑</a> <a href="/tags/前端实战/" style="font-size: 15px;">前端实战</a> <a href="/tags/前端漫话之网络/" style="font-size: 15px;">前端漫话之网络</a> <a href="/tags/存储过程与函数/" style="font-size: 15px;">存储过程与函数</a> <a href="/tags/完整性约束/" style="font-size: 15px;">完整性约束</a> <a href="/tags/CSS小技巧/" style="font-size: 15px;">CSS小技巧</a> <a href="/tags/模块/" style="font-size: 15px;">模块</a> <a href="/tags/深入浅出Node-js学习笔记/" style="font-size: 15px;">深入浅出Node.js学习笔记</a> <a href="/tags/Android开发/" style="font-size: 15px;">Android开发</a> <a href="/tags/鸟哥服务器篇读书笔记/" style="font-size: 15px;">鸟哥服务器篇读书笔记</a> <a href="/tags/鸟哥的Linux读书笔记基础篇/" style="font-size: 15px;">鸟哥的Linux读书笔记基础篇</a> <a href="/tags/索引与视图/" style="font-size: 15px;">索引与视图</a> <a href="/tags/CSS进阶/" style="font-size: 15px;">CSS进阶</a> <a href="/tags/Secrets/" style="font-size: 15px;">Secrets</a> <a href="/tags/触发器/" style="font-size: 15px;">触发器</a> <a href="/tags/协议分析/" style="font-size: 15px;">协议分析</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/yarn初步/">yarn初步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Linux-PID进程追踪/">Linux-PID进程追踪</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/AngularJS深入(1)之ui-router/">AngularJS深入(1)之ui.router</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/ 前端模块化(1)之各种规范/">前端模块化(1)之各种规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)自定义指令/">Vue.j(进阶)自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)Render函数/">Vue.j(进阶)Render函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js概览/">Vue.js概览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/深入浅出Node-js番外篇(1)node版本管理/">深入浅出Node.js番外篇(1)node版本管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/ 前端模块化(2)之requireJS/">JavaScript模块化(2)之requireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/11/AngularJS(9)高级指令/">AngularJS(9)高级指令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">onejustone'blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

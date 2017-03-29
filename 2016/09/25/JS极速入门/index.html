@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>JS极速入门 | onejustone'blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JS极速入门</h1><a id="logo" href="/.">onejustone'blog</a><p class="description">--保证独立思维 --</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">JS极速入门</h1><div class="post-meta">Sep 25, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-认识JS"><span class="toc-number">1.</span> <span class="toc-text">0x00 认识JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-声明-Declatations"><span class="toc-number">2.</span> <span class="toc-text">0x01 声明 (Declatations)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-JS的命名规则"><span class="toc-number">3.</span> <span class="toc-text">0x02 JS的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-JS的数据类型"><span class="toc-number">4.</span> <span class="toc-text">0x03 JS的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本数据类型"><span class="toc-number">4.1.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-对象"><span class="toc-number">4.2.</span> <span class="toc-text">Object 对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-Operators"><span class="toc-number">5.</span> <span class="toc-text">0x04 Operators</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一元-目-Unary-operators"><span class="toc-number">5.1.</span> <span class="toc-text">一元(目) Unary operators</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#自增-and-自减-–"><span class="toc-number">5.1.1.</span> <span class="toc-text">自增(++) and 自减(–)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#的隐式转换"><span class="toc-number">5.1.2.</span> <span class="toc-text">++ 的隐式转换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#delete"><span class="toc-number">5.1.3.</span> <span class="toc-text">delete</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Arithmetic-operators"><span class="toc-number">5.2.</span> <span class="toc-text">Arithmetic operators</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#除"><span class="toc-number">5.2.1.</span> <span class="toc-text">/(除)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#取余"><span class="toc-number">5.2.2.</span> <span class="toc-text">%(取余)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Comparision-operators"><span class="toc-number">5.3.</span> <span class="toc-text">Comparision operators</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Logical-operators"><span class="toc-number">5.4.</span> <span class="toc-text">Logical operators</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stirng-operators"><span class="toc-number">5.5.</span> <span class="toc-text">Stirng operators</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conditional-ternary-operators"><span class="toc-number">5.6.</span> <span class="toc-text">Conditional(ternary) operators</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Comma-operator"><span class="toc-number">5.7.</span> <span class="toc-text">Comma operator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Destructing"><span class="toc-number">5.8.</span> <span class="toc-text">Destructing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#typeof"><span class="toc-number">5.9.</span> <span class="toc-text">typeof</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-数据类型转换"><span class="toc-number">6.</span> <span class="toc-text">0x05 数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#显示转换"><span class="toc-number">6.1.</span> <span class="toc-text">显示转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Number-函数"><span class="toc-number">6.1.1.</span> <span class="toc-text">Number( ) 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#parseInt-String-radix-函数"><span class="toc-number">6.1.2.</span> <span class="toc-text">parseInt(String,radix) 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#parseFloat-String-函数"><span class="toc-number">6.1.3.</span> <span class="toc-text">parseFloat(String) 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单目加法运算"><span class="toc-number">6.1.4.</span> <span class="toc-text">单目加法运算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#String"><span class="toc-number">6.1.5.</span> <span class="toc-text">String</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Boolean"><span class="toc-number">6.1.6.</span> <span class="toc-text">Boolean</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-Control-flow-and-error-handling"><span class="toc-number">7.</span> <span class="toc-text">0x06 Control flow and error handling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Conditional-Statements"><span class="toc-number">7.1.</span> <span class="toc-text">Conditional Statements</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#if…else"><span class="toc-number">7.1.1.</span> <span class="toc-text">if…else</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#switch…case"><span class="toc-number">7.1.2.</span> <span class="toc-text">switch…case</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loop-Statement"><span class="toc-number">7.2.</span> <span class="toc-text">Loop Statement</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for"><span class="toc-number">7.2.1.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#do…while"><span class="toc-number">7.2.2.</span> <span class="toc-text">do…while</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#while"><span class="toc-number">7.2.3.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标签语句-label-statement"><span class="toc-number">7.2.4.</span> <span class="toc-text">标签语句 label statement</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-Manipulation-Statements"><span class="toc-number">7.3.</span> <span class="toc-text">Object Manipulation Statements</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for…in"><span class="toc-number">7.3.1.</span> <span class="toc-text">for…in</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#for-each…in"><span class="toc-number">7.3.2.</span> <span class="toc-text">for each…in</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x09-Numbers-and-dates"><span class="toc-number">8.</span> <span class="toc-text">0x09 Numbers and dates</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数字的常用方法"><span class="toc-number">8.1.</span> <span class="toc-text">数字的常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Math-object"><span class="toc-number">8.2.</span> <span class="toc-text">Math object</span></a></li></ol></li></ol></div></div><div class="post-content"><h3 id="0x00-认识JS"><a href="#0x00-认识JS" class="headerlink" title="0x00 认识JS"></a>0x00 认识JS</h3><p>JS由三部分组成：核心(ECMAScript)，文档对象模型(DOM),浏览器对象模型(BOM).</p>
+<hr>
+<h3 id="0x01-声明-Declatations"><a href="#0x01-声明-Declatations" class="headerlink" title="0x01 声明 (Declatations)"></a>0x01 声明 (Declatations)</h3><p>JS 有三种声明:<br><code>var</code> : 声明变量<br><code>let</code> : 什么块范围局部变量( block scope local variable)<br><code>const</code> : 声明一个只读常量( ready only)</p>
+<blockquote>
+<p>用 var 或 let 声明的未赋初值的变量，值会被设定为 undefined,试图访问一个未被初始化的变量会导致一 <code>ReferenceError</code> 异常抛出。</p>
+<p>undefined 值在 Bollean 环境中会被当做 false，在数值类型环境中会被转换为 NaN(Not a Number).</p>
+<p>空值 null 在数值环境中会被当做 0 来对待；在 布尔环境中则会当做 false</p>
+</blockquote>
+<hr>
+<h3 id="0x02-JS的命名规则"><a href="#0x02-JS的命名规则" class="headerlink" title="0x02 JS的命名规则"></a>0x02 JS的命名规则</h3><p>JS 是大小写敏感的,可以包含字母，数字，下划线，$字符，但是第一个字符不能是数字。</p>
+<hr>
+<h3 id="0x03-JS的数据类型"><a href="#0x03-JS的数据类型" class="headerlink" title="0x03 JS的数据类型"></a>0x03 JS的数据类型</h3><p>JS中的数据类型分为7 中数据类型,六种<code>原型的数据类型</code>和<code>Object</code>(对象)</p>
+<h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>基本数据类型有: <code>String</code> , <code>Number</code> ,  <code>Boolean</code> , <code>Null</code> , <code>Undefined</code>,<code>Symbol</code>(一种新的数据类型).</p>
+<blockquote>
+<p>对于 <code>float</code> 类型数据，当小数点后没有数或者只有零的时候，JS 会将浮点数自动转换成整数,以节省空间。</p>
+</blockquote>
+<h4 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h4><hr>
+<h3 id="0x04-Operators"><a href="#0x04-Operators" class="headerlink" title="0x04 Operators"></a>0x04 Operators</h3><hr>
+<h4 id="一元-目-Unary-operators"><a href="#一元-目-Unary-operators" class="headerlink" title="一元(目) Unary operators"></a>一元(目) Unary operators</h4><h5 id="自增-and-自减-–"><a href="#自增-and-自减-–" class="headerlink" title="自增(++) and 自减(–)"></a>自增(++) and 自减(–)</h5><p>在没有进行赋值运算的时候，<code>++i</code> 和 <code>i++</code> 的作用是相同的。</p>
+<p>若是存在赋值运算，当运算符(++)在前时，先自增后赋值，运算符在后时，先赋值再自增。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a=10, b = 20 , c = 30;</div><div class="line">++a;//11</div><div class="line">a++;//12</div><div class="line">var e = (++a) + (++b) + (c++) + (a++);// e = 77</div></pre></td></tr></table></figure>
+<h5 id="的隐式转换"><a href="#的隐式转换" class="headerlink" title="++ 的隐式转换"></a>++ 的隐式转换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var box = &apos;89&apos;; </div><div class="line">box++; </div><div class="line">//box = 90 </div><div class="line">//数字类型的字符串自动转换为数字 (隐式转换)</div><div class="line"></div><div class="line">var box = `abc`; </div><div class="line">box++;</div><div class="line">//box 为NaN 尝试将字符串转换为数字，失败</div><div class="line"></div><div class="line">var box = &quot;123adf&quot;;</div><div class="line">box ++;</div><div class="line">//box 为NaN</div><div class="line"></div><div class="line">var box = false;</div><div class="line">var box1 = &quot;false&quot;;</div><div class="line">box1++;</div><div class="line">box++;</div><div class="line">//box1 = NaN</div><div class="line">//box = 1</div><div class="line">//false 默认值为 0，自增后为1 (隐式转换)</div><div class="line"></div><div class="line">var box = 2.4;</div><div class="line">box++;</div><div class="line">//3.4 直接加1</div></pre></td></tr></table></figure>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><hr>
+<h4 id="Arithmetic-operators"><a href="#Arithmetic-operators" class="headerlink" title="Arithmetic operators"></a>Arithmetic operators</h4><p>常用的算术运算符有:<code>+</code>, <code>-</code>,  <code>*</code>,  <code>/(除)</code>, <code>%((求余))</code></p>
+<blockquote>
+<p><code>NaN</code> 和任何一个数运算得 <code>NaN</code></p>
+<p>数值和字符串相加，将自动转换为字符串的拼接</p>
+<p>100/0 , 结果是 <code>Infinity</code> 无穷大</p>
+<p>将一个数值类型的值转换为字符串类型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = 5;</div><div class="line">a = a + &quot; &quot;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>将一个数值类型的字符串转换为数值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &quot;5&quot;;</div><div class="line">a = a - 0;</div><div class="line">// a = a / 1;</div><div class="line">// a = a * 1;</div></pre></td></tr></table></figure>
+<h5 id="除"><a href="#除" class="headerlink" title="/(除)"></a>/(除)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a % &quot;&quot; //Infinity</div><div class="line">a % null //Infinity</div><div class="line">a % &quot;dfsd&quot; //NaN</div></pre></td></tr></table></figure>
+<h5 id="取余"><a href="#取余" class="headerlink" title="%(取余)"></a>%(取余)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a % &quot;&quot; //NaN </div><div class="line">a % null //NaN</div><div class="line">a % &quot;dfsd&quot; //NaN</div></pre></td></tr></table></figure>
+<p><code>JS</code> 中对两数进行求模运算，得到的<code>余数的符号</code>是由<code>被除数</code>决定的。</p>
+<hr>
+<h4 id="Comparision-operators"><a href="#Comparision-operators" class="headerlink" title="Comparision operators"></a>Comparision operators</h4><p><code>JS</code> 中的比较运算符: <code>&gt;</code> , <code>&lt;</code>,<code>&lt;=</code>, <code>&gt;=</code> , <code>==</code> , <code>!=</code> , <code>====</code> , <code>!==</code></p>
+<blockquote>
+<p>等于 (==) 只是在值相等的情况下便返回 ture</p>
+<p>全等于 (===) 只是在值和类型都匹配时才返回 true</p>
+<p>两个数值型字符串比较，那么比较的是第一个数字的大小</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;555&quot; &gt; &quot;69&quot; // flase</div></pre></td></tr></table></figure>
+<blockquote>
+<p>两个数都是字符型，则比较其 第一字符的ASCII 码的大小。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;abc&quot; &gt; &quot;abce&quot; // false</div><div class="line">&quot;d&quot; &gt; &quot;abce&quot; // ture</div><div class="line">//ASCII : a:97,b:98,c:99,d:100</div></pre></td></tr></table></figure>
+<blockquote>
+<p>两个运算数进行比较，如果有一个是数值，另一个是数值类型的字符串，则将另一个转换为数值，再比较(这里要和 <code>+</code> , 比如 123 + “789” 返回 “123789” 区分开)。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">5 &gt; &quot;15&quot; // false</div></pre></td></tr></table></figure>
+<blockquote>
+<p>关系运算符返回的是 <code>布尔值</code></p>
+</blockquote>
+<hr>
+<h4 id="Logical-operators"><a href="#Logical-operators" class="headerlink" title="Logical operators"></a>Logical operators</h4><p>逻辑与 真真为真<br>逻辑或 一真为真</p>
+<p>在所有的编程语言中，非 <code>0</code> 值都是真值。JS 中的 <code>false</code> 值的情况有: <code>false</code> , <code>null</code>, <code>NaN</code> , <code>undefined</code> , <code>0</code>, <code>空字符串</code>。</p>
+<blockquote>
+<p>逻辑非运算符 (!) 可以用于任何值。无论这个值是什么数据类型，这个运算符都会返回一个布尔值。它的流程是：先将这个值转换成布尔值，然后取反。</p>
+</blockquote>
+<hr>
+<h4 id="Stirng-operators"><a href="#Stirng-operators" class="headerlink" title="Stirng operators"></a>Stirng operators</h4><p>除了比较操作符，它可以在字符串值中使用，连接操作符（+）连接两个字符串值相连接，返回另一个字符串，它是两个操作数串的结合。</p>
+<hr>
+<h4 id="Conditional-ternary-operators"><a href="#Conditional-ternary-operators" class="headerlink" title="Conditional(ternary) operators"></a>Conditional(ternary) operators</h4><p>条件运算符( <code>conditional operator</code>) 是 JS  中唯一一个三目运算符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conditiaon ? val1 : val2 ;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="Comma-operator"><a href="#Comma-operator" class="headerlink" title="Comma operator"></a>Comma operator</h4><p>逗号操作符(,)对两个数进行求值并返回第二个操作数的值，通常用在 for 循环中。</p>
+<hr>
+<h4 id="Destructing"><a href="#Destructing" class="headerlink" title="Destructing"></a>Destructing</h4><p>解构赋值 destructing assignment 可以从一个数组或者对象对应的数组解构或对象字面量里提取数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var foo = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;];</div><div class="line"></div><div class="line">//不使用解构</div><div class="line">var one = foo[0];</div><div class="line">var two = foo[1];</div><div class="line">var three = foo[2];</div><div class="line"></div><div class="line">//使用解构</div><div class="line">var [one, two, three] = foo;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h4><p><code>typeof</code> 操作符用来检测变量的数据类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typeof operand</div><div class="line">typeof (operand)</div></pre></td></tr></table></figure>
+<p>以上两种都是有效的</p>
+<p>对于字面量或者变量，使用 <code>typeof</code> 会返回如下字符串</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">字符串</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">undefined</td>
+<td style="text-align:center">未定义</td>
+</tr>
+<tr>
+<td style="text-align:right">boolean</td>
+<td style="text-align:center">布尔值</td>
+</tr>
+<tr>
+<td style="text-align:right">string</td>
+<td style="text-align:center">字符串</td>
+</tr>
+<tr>
+<td style="text-align:right">number</td>
+<td style="text-align:center">数字</td>
+</tr>
+<tr>
+<td style="text-align:right">object</td>
+<td style="text-align:center">对象或者null</td>
+</tr>
+<tr>
+<td style="text-align:right">function</td>
+<td style="text-align:center">函数</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="0x05-数据类型转换"><a href="#0x05-数据类型转换" class="headerlink" title="0x05 数据类型转换"></a>0x05 数据类型转换</h3><h4 id="显示转换"><a href="#显示转换" class="headerlink" title="显示转换"></a>显示转换</h4><h5 id="Number-函数"><a href="#Number-函数" class="headerlink" title="Number( ) 函数"></a>Number( ) 函数</h5><p><strong>Number()函数</strong> 可以将任何的非数值( <code>string</code> , <code>null</code> , <code>boolean</code> ,<code>undefined</code>)转换为数值。</p>
+<p>1.只包含数值的字符串，会直接转成成十进制数值，如果包含前导0，即自动去掉。</p>
+<p>2.只包含浮点数值的字符串，会直接转成浮点数值，如果包含前导和后导0，即自动去掉。</p>
+<p>3.如果字符串是空，那么直接转成成0。</p>
+<p>4.如果不是以上三种字符串类型，则返回NaN。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Number(ture); //转换为 1</div><div class="line">Number(null); //转换为 0</div><div class="line">Number(undefined); //转换为 NaN</div><div class="line">Number(false); //转换为 0</div><div class="line">Number(&quot;false&quot;); //NaN</div><div class="line">Number(&quot;23&quot;); // 23</div><div class="line">Number(&quot;0.330&quot;); //0.33</div><div class="line">Number(&quot;&quot;); //0</div><div class="line"></div><div class="line">Number(0123); // 0 不会别忽略 自动识别为八进制 83</div><div class="line">Number(0987); // 0 被忽略 自动识别为十进制 987</div></pre></td></tr></table></figure>
+<h5 id="parseInt-String-radix-函数"><a href="#parseInt-String-radix-函数" class="headerlink" title="parseInt(String,radix) 函数"></a>parseInt(String,radix) 函数</h5><p><code>parseInt</code> 将<strong>字符串</strong>转换为<strong>整型</strong>,从第一个数开始取，到最后一个连续数字结束，如果第一个不是数字，则返回 <code>NaN</code>.</p>
+<p><code>parseInt</code> 除了可以识别十进制还可以识别八进制和十六进制。</p>
+<h5 id="parseFloat-String-函数"><a href="#parseFloat-String-函数" class="headerlink" title="parseFloat(String) 函数"></a>parseFloat(String) 函数</h5><p><code>parseFloat</code> 将 <strong>字符串</strong>转换成<strong>浮点数</strong>。<br>与 <code>parseInt</code> 从第一位解析到非浮点数。</p>
+<h5 id="单目加法运算"><a href="#单目加法运算" class="headerlink" title="单目加法运算"></a>单目加法运算</h5><p>将字符串转换为数字的另一种方法是使用单目加法运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(+&quot;1.1&quot;)+(+&quot;1.1&quot;) = 2.2</div></pre></td></tr></table></figure>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><p>将一个值转换为 <code>String</code> 类型。</p>
+<h5 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Boolean(123);</div><div class="line">Boolean(&quot;123);</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="0x06-Control-flow-and-error-handling"><a href="#0x06-Control-flow-and-error-handling" class="headerlink" title="0x06 Control flow and error handling"></a>0x06 Control flow and error handling</h3><hr>
+<h4 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h4><p>JS 有两种条件判断语句: if…else 和 switch.</p>
+<h5 id="if…else"><a href="#if…else" class="headerlink" title="if…else"></a>if…else</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if (condition_1) &#123;</div><div class="line">    statement_1;</div><div class="line">&#125;</div><div class="line">else if (condition_2) &#123;</div><div class="line">    statement_2;</div><div class="line">&#125;</div><div class="line">...</div><div class="line">else &#123;</div><div class="line">    statement_n;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在 JS if 判断中，以下值将会被计算出 flase : <code>false</code>, <code>undefined</code>, <code>null</code>, <code>0</code>, <code>NaN</code>, <code>空字符串(&quot;&quot;)</code>。除此之外的所有内容都为 true</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if(&quot;0&quot;) &#123;console.log(&quot;ha&quot;);&#125; // &quot;ha&quot;</div></pre></td></tr></table></figure>
+<h5 id="switch…case"><a href="#switch…case" class="headerlink" title="switch…case"></a>switch…case</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">swicth (expression) &#123;</div><div class="line"></div><div class="line">    case labe_1:</div><div class="line">        statements_1</div><div class="line">        [break;]</div><div class="line">        </div><div class="line">    ...</div><div class="line">    default:    </div><div class="line">        statement_def</div><div class="line">        [break;]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>!Note<br>表达式不能是浮点型，最后一条的 case 的break可以省略，default 的位置可以交换。</p>
+<p>当多个值的执行语句，可以只写一组执行语句</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">swicth (expression) &#123;</div><div class="line"></div><div class="line">    case labe_1:</div><div class="line">    case label_2:</div><div class="line">    case label_3:</div><div class="line">    </div><div class="line">    ...</div><div class="line">    case lable_n:</div><div class="line">        statements</div><div class="line">        [break;]</div><div class="line">        </div><div class="line">    ...</div><div class="line">    default:    </div><div class="line">        statement_def</div><div class="line">        [break;]</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="Loop-Statement"><a href="#Loop-Statement" class="headerlink" title="Loop Statement"></a>Loop Statement</h4><p>JS 中的循环控制语句有: <code>for</code>, <code>do...while</code>, <code>while</code>,<code>for...in</code>, <code>label</code>, <code>break</code>, <code>continue</code>.</p>
+<p><code>for...in</code> 主要是用来操作对象的。</p>
+<h5 id="for"><a href="#for" class="headerlink" title="for"></a>for</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for ([initialExpression]; [condition]; [incrementExpression])</div><div class="line">    statement;</div></pre></td></tr></table></figure>
+<p>initialExpression: 初始化表达式<br>condition: 条件表达式<br>statement: 需要执行的语句<br>incrementExpression: 累计表达式</p>
+<h5 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">do</div><div class="line">    statement</div><div class="line">while (condition);</div></pre></td></tr></table></figure>
+<h5 id="while"><a href="#while" class="headerlink" title="while"></a>while</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">while (condition)</div><div class="line">    statement</div></pre></td></tr></table></figure>
+<h5 id="标签语句-label-statement"><a href="#标签语句-label-statement" class="headerlink" title="标签语句 label statement"></a>标签语句 label statement</h5><p>标签语句提供一种使我们可以在同一程序的另一处找到它的标识。<br>比如可以用一个标识来识别一个循环，并使用 break 或者 continue 来说明一个程序是否要中断这个循环或者继续执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lable: </div><div class="line">    statement;</div></pre></td></tr></table></figure>
+<p><em>label</em> 可以是 JS 中任意的非保留的标识符。</p>
+<hr>
+<h4 id="Object-Manipulation-Statements"><a href="#Object-Manipulation-Statements" class="headerlink" title="Object Manipulation Statements"></a>Object Manipulation Statements</h4><p>JS 中的对象操作语句有 <code>for...in</code>, <code>for...each</code>, <code>with</code>.</p>
+<h5 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h5><p><code>for...in</code> 语句迭代一个指定的变量去遍历这个对象的属性，每个属性，JS 执行特定的语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (variable in object) &#123;</div><div class="line">    statements</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="for-each…in"><a href="#for-each…in" class="headerlink" title="for each…in"></a>for each…in</h5><p><code>for each...in</code> 类似于 <code>for..in</code> 语句，但是它得到的是对象属性的值，而不名字。</p>
+<hr>
+<h3 id="0x09-Numbers-and-dates"><a href="#0x09-Numbers-and-dates" class="headerlink" title="0x09 Numbers and dates"></a>0x09 Numbers and dates</h3><p>JS 中，数字都是 <code>double float</code> 的，一个数字的表示范围只能是在(-(2^53-1)~2^53-1)之间的。没有特定的数字类型为整型。除了能够表示浮点数，数字类型有三个符号值: +Infinity、-Infinity和 NaN (not-a-number)。</p>
+<hr>
+<h4 id="数字的常用方法"><a href="#数字的常用方法" class="headerlink" title="数字的常用方法"></a>数字的常用方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Number.parsrFloat()</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Number.parseInet()</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Number.isFinite()</td>
+<td style="text-align:center">判断传递的值是否为有限数字</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.isInteger()</td>
+<td style="text-align:center">判断传递的是否为整数</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.iNaN()</td>
+<td style="text-align:center">判断传递的值是否为NaN</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.isSafeInteger()</td>
+<td style="text-align:center">判断传递的值是否为安全整数</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.toExponential()</td>
+<td style="text-align:center">返回一个指数形式的字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.toFixed()</td>
+<td style="text-align:center">返回指定小数位数的形式</td>
+</tr>
+<tr>
+<td style="text-align:left">Number.toPrecision()</td>
+<td style="text-align:center">返回一个指定精度的数字。有可能损失精度</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="Math-object"><a href="#Math-object" class="headerlink" title="Math object"></a>Math object</h4><p>我们不可以创建一个自己的 Math 对象，而只能使用系统内建的 Math 对象。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>sin(),cos(),tan()</td>
+<td>标准三角函数</td>
+</tr>
+<tr>
+<td>pow(),exp(),log10()</td>
+<td>指数与对数</td>
+</tr>
+<tr>
+<td>min(),max()</td>
+<td>返回逗号分隔的数组中的最大值、最小值</td>
+</tr>
+<tr>
+<td>random()</td>
+<td>返回0和1之间的随机数</td>
+</tr>
+<tr>
+<td>round(),fround(),trunc()</td>
+<td>四舍五入和截断函数</td>
+</tr>
+<tr>
+<td>sqrt(),cbrt()</td>
+<td>平凡根，立方根</td>
+</tr>
+<tr>
+<td>sign()</td>
+<td>数字的符号，说明数字是否为正，负，零</td>
+</tr>
+</tbody>
+</table>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://onejustone.xyz/2016/09/25/JS极速入门/" data-id="cj0uq9jla0067cuvsyexpx2u0" class="article-share-link">分享到</a><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-nav"><a href="/2016/09/28/JS引用类型(6)之单体内置对象/" class="pre">JS引用类型(4)之Math</a><a href="/2016/09/17/CSS界面组件之导航菜单/" class="next">CSS界面组件之导航菜单</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://onejustone.xyz"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CROS/" style="font-size: 15px;">CROS</a> <a href="/tags/Linux进程/" style="font-size: 15px;">Linux进程</a> <a href="/tags/AngularJS/" style="font-size: 15px;">AngularJS</a> <a href="/tags/Python爬虫/" style="font-size: 15px;">Python爬虫</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JS对象/" style="font-size: 15px;">JS对象</a> <a href="/tags/前端模块化/" style="font-size: 15px;">前端模块化</a> <a href="/tags/算法入门/" style="font-size: 15px;">算法入门</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/http模块/" style="font-size: 15px;">http模块</a> <a href="/tags/Java基础/" style="font-size: 15px;">Java基础</a> <a href="/tags/AngularJS深入/" style="font-size: 15px;">AngularJS深入</a> <a href="/tags/Kali渗透测试/" style="font-size: 15px;">Kali渗透测试</a> <a href="/tags/Web渗透测试/" style="font-size: 15px;">Web渗透测试</a> <a href="/tags/Windows工具篇/" style="font-size: 15px;">Windows工具篇</a> <a href="/tags/工具篇/" style="font-size: 15px;">工具篇</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/CSS界面组件/" style="font-size: 15px;">CSS界面组件</a> <a href="/tags/Cmder/" style="font-size: 15px;">Cmder</a> <a href="/tags/HTML5/" style="font-size: 15px;">HTML5</a> <a href="/tags/Web程序设计/" style="font-size: 15px;">Web程序设计</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/MyFirstApp/" style="font-size: 15px;">MyFirstApp</a> <a href="/tags/Kali第六章/" style="font-size: 15px;">Kali第六章</a> <a href="/tags/被动信息收集/" style="font-size: 15px;">被动信息收集</a> <a href="/tags/Apache2/" style="font-size: 15px;">Apache2</a> <a href="/tags/View-Urls/" style="font-size: 15px;">View,Urls</a> <a href="/tags/Models/" style="font-size: 15px;">Models</a> <a href="/tags/前端工具流/" style="font-size: 15px;">前端工具流</a> <a href="/tags/版本控制工具/" style="font-size: 15px;">版本控制工具</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/Java-J2EE/" style="font-size: 15px;">Java-J2EE</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/网络协议/" style="font-size: 15px;">网络协议</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/JS事件/" style="font-size: 15px;">JS事件</a> <a href="/tags/JS变量作用域和内存/" style="font-size: 15px;">JS变量作用域和内存</a> <a href="/tags/JS引用类型/" style="font-size: 15px;">JS引用类型</a> <a href="/tags/Cookie/" style="font-size: 15px;">Cookie</a> <a href="/tags/LocalStorage/" style="font-size: 15px;">LocalStorage</a> <a href="/tags/同源策略与CORS/" style="font-size: 15px;">同源策略与CORS</a> <a href="/tags/表单脚本/" style="font-size: 15px;">表单脚本</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/JSON/" style="font-size: 15px;">JSON</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/JS正则/" style="font-size: 15px;">JS正则</a> <a href="/tags/JS设计模式/" style="font-size: 15px;">JS设计模式</a> <a href="/tags/JS离线应用与客户端存储/" style="font-size: 15px;">JS离线应用与客户端存储</a> <a href="/tags/JS高阶/" style="font-size: 15px;">JS高阶</a> <a href="/tags/Java应用/" style="font-size: 15px;">Java应用</a> <a href="/tags/kali之滚动更新/" style="font-size: 15px;">kali之滚动更新</a> <a href="/tags/Kali安装与环境优化/" style="font-size: 15px;">Kali安装与环境优化</a> <a href="/tags/渗透手册/" style="font-size: 15px;">渗透手册</a> <a href="/tags/漏洞扫描/" style="font-size: 15px;">漏洞扫描</a> <a href="/tags/kali渗透测试/" style="font-size: 15px;">kali渗透测试</a> <a href="/tags/主动信息收集/" style="font-size: 15px;">主动信息收集</a> <a href="/tags/photoshop/" style="font-size: 15px;">photoshop</a> <a href="/tags/Python基础/" style="font-size: 15px;">Python基础</a> <a href="/tags/Python标准库/" style="font-size: 15px;">Python标准库</a> <a href="/tags/Python网络/" style="font-size: 15px;">Python网络</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/JSX/" style="font-size: 15px;">JSX</a> <a href="/tags/CSS预处理/" style="font-size: 15px;">CSS预处理</a> <a href="/tags/SQL查询的艺术/" style="font-size: 15px;">SQL查询的艺术</a> <a href="/tags/SQL基础/" style="font-size: 15px;">SQL基础</a> <a href="/tags/kali第五章/" style="font-size: 15px;">kali第五章</a> <a href="/tags/基本工具/" style="font-size: 15px;">基本工具</a> <a href="/tags/JS小项目/" style="font-size: 15px;">JS小项目</a> <a href="/tags/Vue-js/" style="font-size: 15px;">Vue.js</a> <a href="/tags/kali系统配置/" style="font-size: 15px;">kali系统配置</a> <a href="/tags/fs模块/" style="font-size: 15px;">fs模块</a> <a href="/tags/响应式布局/" style="font-size: 15px;">响应式布局</a> <a href="/tags/前端工具化/" style="font-size: 15px;">前端工具化</a> <a href="/tags/yarn/" style="font-size: 15px;">yarn</a> <a href="/tags/前端之坑/" style="font-size: 15px;">前端之坑</a> <a href="/tags/前端实战/" style="font-size: 15px;">前端实战</a> <a href="/tags/前端漫话之网络/" style="font-size: 15px;">前端漫话之网络</a> <a href="/tags/存储过程与函数/" style="font-size: 15px;">存储过程与函数</a> <a href="/tags/完整性约束/" style="font-size: 15px;">完整性约束</a> <a href="/tags/CSS小技巧/" style="font-size: 15px;">CSS小技巧</a> <a href="/tags/模块/" style="font-size: 15px;">模块</a> <a href="/tags/深入浅出Node-js学习笔记/" style="font-size: 15px;">深入浅出Node.js学习笔记</a> <a href="/tags/Android开发/" style="font-size: 15px;">Android开发</a> <a href="/tags/鸟哥服务器篇读书笔记/" style="font-size: 15px;">鸟哥服务器篇读书笔记</a> <a href="/tags/鸟哥的Linux读书笔记基础篇/" style="font-size: 15px;">鸟哥的Linux读书笔记基础篇</a> <a href="/tags/索引与视图/" style="font-size: 15px;">索引与视图</a> <a href="/tags/CSS进阶/" style="font-size: 15px;">CSS进阶</a> <a href="/tags/Secrets/" style="font-size: 15px;">Secrets</a> <a href="/tags/触发器/" style="font-size: 15px;">触发器</a> <a href="/tags/协议分析/" style="font-size: 15px;">协议分析</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/yarn初步/">yarn初步</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/Linux-PID进程追踪/">Linux-PID进程追踪</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/AngularJS深入(1)之ui-router/">AngularJS深入(1)之ui.router</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/ 前端模块化(1)之各种规范/">前端模块化(1)之各种规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)自定义指令/">Vue.j(进阶)自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js(进阶)Render函数/">Vue.j(进阶)Render函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/Vue-js概览/">Vue.js概览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/18/深入浅出Node-js番外篇(1)node版本管理/">深入浅出Node.js番外篇(1)node版本管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/ 前端模块化(2)之requireJS/">JavaScript模块化(2)之requireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/11/AngularJS(9)高级指令/">AngularJS(9)高级指令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">onejustone'blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
